@@ -28,7 +28,6 @@ jQuery(document).ready(function ($) {
       `;
     $("#total").html(`$${(item.price / 100 * count).toFixed(2)}`);
     tbody.append(row);
-    console.log(item, user);
   };
   init();
 });
