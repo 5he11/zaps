@@ -468,6 +468,10 @@ a {
   position: relative;
   overflow: hidden;
   z-index: 9; }
+    .site-blocks-cover .price {
+        font-size: 2rem;
+        color: #000;
+    }
   .site-blocks-cover.wave {
     position: relative; }
     .site-blocks-cover.wave:after {
