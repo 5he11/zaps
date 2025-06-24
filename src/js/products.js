@@ -10,7 +10,9 @@ jQuery(document).ready(function ($) {
 
   var checkout = function () {
     $('.buy-now').on('click', function (e) {
-      
+      var count = $('input.item-count').val();
+      var itemid = $('.buy-now').attr('data-itemid');
+      document.location.href = `checkout.html?item=${itemid}&count=${count}`;
     });
   };
   checkout();
