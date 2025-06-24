@@ -10,8 +10,11 @@ jQuery(document).ready(function ($) {
 
   var items = new Map();
   items.set('51h3x1krywl', { name: 'Fingerprint Padlock', price: 1499 });
-  items.set('81-jhvgoqjl', { name: 'Pet Hair Remover', price: 1499 });
+  items.set('61suhdxjgdl', { name: 'Airtag Cat Collar Breakaway', price: 834 });
+  items.set('81-jhvgoqjl', { name: 'Pet Hair Remover', price: 950 });
   items.set('61cdgxosgnl', { name: 'Fruit Slicer Cup', price: 1399 });
+  items.set('51cd8lw51l', { name: 'Emwel Dog Water Bottle', price: 1999 });
+  items.set('811pqa3dcml', { name: 'UltraKey Boonie hat', price: 1985 });
 
   var init = function () {
     var params = new URLSearchParams(window.location.search);
