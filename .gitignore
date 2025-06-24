@@ -264,3 +264,5 @@ __pycache__/
 *.pyc
 /src/web.config
 /tempfiles
+/built
+/build-static-website.py
