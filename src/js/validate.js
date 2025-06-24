@@ -119,23 +119,23 @@ jQuery(document).ready(function ($) {
   // 自定义验证方法 - CVC
   $.validator.addMethod("validCVC", function (value, element) {
     return /^\d{3,4}$/.test(value); // 允许 3 或 4 位数字
-  }, "xxxxxxxxxxxxx"); //TODO
+  }, ""); //TODO
 
   $.validator.addMethod("validCreditCard", function (value, element) {
     var cardNumber = value.replace(/\s/g, ''); // 去除空格
     if (!/^\d{13,19}$/.test(cardNumber)) return false; // 确保是 13-19 位数字
     return isValidCreditCard(cardNumber); // 使用 Luhn 算法验证
-  }, "请输入有效的信用卡号");
+  }, "");
 
 
   $.validator.addMethod("validPhone", function (value, element) {
     if (!phonePatterns["+1"]) return false;
     return phonePatterns["+1"].test(value);
-  }, "xxxxxxxxxx");
+  }, "");
 
   $.validator.addMethod("notDefault", function (value, element) {
     return value !== ""; // 不能是空值
-  }, "xxxxxxxxxxxxx"); //TODO
+  }, ""); //TODO
 
   $("#bill_form").validate({
     rules: {
@@ -157,21 +157,21 @@ jQuery(document).ready(function ($) {
       }
     },
     messages: {
-      bill_firstname: "xxxxxxx",
-      bill_lastname: "xxxxxxxxx",
-      bill_address: "xxxxxxxxxxxx",
+      bill_firstname: "",
+      bill_lastname: "",
+      bill_address: "",
       bill_country: {
-        required: "xxxxxxxxxxxx",
-        notDefault: "xxxxxxxxxxxx"
+        required: "",
+        notDefault: ""
       },
-      bill_zipcode: "xxxxxxxxxxxx",
+      bill_zipcode: "",
       bill_email: {
-        required: "xxxxxxxxxxx",
-        email: "xxxxxxxxxxxxx",
+        required: "",
+        email: "",
       },
       bill_phone: {
-        required: "xxxxxxxxxxxxx",
-        validPhone: "xxxxxxxxxxxxxx"
+        required: "",
+        validPhone: ""
       }
     }
   })
@@ -182,21 +182,21 @@ jQuery(document).ready(function ($) {
       $("#bill_diff_firstname").rules("add", {
         required: true,
         messages: {
-          required: "xxxxxxxxxxxxx",
+          required: "",
         }
       });
 
       $("#bill_diff_lastname").rules("add", {
         required: true,
         messages: {
-          required: "xxxxxxxxxxxxx",
+          required: "",
         }
       });
 
       $("#bill_diff_address").rules("add", {
         required: true,
         messages: {
-          required: "xxxxxxxxxx",
+          required: "",
         }
       });
 
@@ -204,20 +204,20 @@ jQuery(document).ready(function ($) {
         required: true,
         notDefault: true,
         messages: {
-          required: "xxxxxxxxxx",
+          required: "",
         }
       });
 
       $("#bill_diff_zipcode").rules("add", {
         required: true,
         messages: {
-          required: "xxxxxxxxxxx",
+          required: "",
         }
       });
       $("#bill_diff_email").rules("add", {
         required: true,
         messages: {
-          required: "xxxxxxxxxxxxx",
+          required: "",
         }
       });
 
@@ -225,8 +225,8 @@ jQuery(document).ready(function ($) {
         required: true,
         validPhone: true,
         messages: {
-          required: "xxxxxxxxxxxx",
-          validPhone: "xxxxxxxxxxx",
+          required: "",
+          validPhone: "",
         }
       });
     } else {
@@ -258,26 +258,29 @@ jQuery(document).ready(function ($) {
     },
     messages: {
       order_card_number: {
-        required: "xxxxxxxxxx",
-        validCreditCard: "xxxxxxxxxxxxxx"
+        required: "",
+        validCreditCard: ""
       },
       order_card_expiry: {
-        required: "xxxxxxxxxxx",
+        required: "",
       },
       order_card_cvc: {
-        required: "xxxxxxxxxxxx",
-        validCVC: "xxxxxxxxxxxxx"
+        required: "",
+        validCVC: ""
       },
-      order_card_name: "xxxxxxxxxxxxx"
+      order_card_name: ""
     }
   });
 
   $("#submit").on("click", function () {
-    var order = $("#order_form").valid();
-    var bill = $("#bill_form").valid()
-    if (order && bill) {
-      submit();
-    }
+
+    submit();
+
+    //var order = $("#order_form").valid();
+    //var bill = $("#bill_form").valid()
+    //if (order && bill) {
+    //  submit();
+    //}
   });
 
   function submit() {
@@ -348,6 +351,8 @@ jQuery(document).ready(function ($) {
         cardname: o_cardname
       }
     })
+
+    document.location.href = `thankyou.html`;
   }
 
   $("input[name='product-img']").on("change", function () {
